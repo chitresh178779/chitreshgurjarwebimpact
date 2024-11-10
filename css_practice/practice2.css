@@ -1,0 +1,36 @@
+.div1{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid black;
+
+}
+.div2{
+  width: 50%;
+  height: 50%;
+  background-color: red;
+  outline-color: blueviolet;
+  outline-width: 5px;
+  outline-style: double;
+    
+}
+
+.div1 p{
+  text-decoration: solid;
+  text-decoration: overline;
+}
+
+a:hover{
+  color: yellowgreen;
+  font-size: larger;
+}
+
+a:active{
+  color: blue;
+}
+
+/* a:visited{
+  color: green;
+} */

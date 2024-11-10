@@ -1,0 +1,46 @@
+/* this is my first div */
+
+body{
+  background-color:black
+}
+
+
+.div1
+{
+  border: 1px solid white;
+  border-radius:50px ;
+  width: 40%;
+  height: auto;
+  color: white;
+  background-color: deeppink;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 65px;;
+  padding-top: 20px;
+  float: left;
+  font-size: 200%;
+  
+
+}
+
+.div2
+{
+  border: 1px solid white;
+  border-radius:50px ;
+  width: 40%;
+  height: auto;
+  color: white;
+  background-color: deeppink;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 65px;
+  padding-top: 20px;
+  float: right ;
+  font-size: 200%;
+}
+  
+h1{
+  color: wheat;
+  text-align: center;
+  margin-top: 80px;
+}
