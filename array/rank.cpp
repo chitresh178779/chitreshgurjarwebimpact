@@ -5,8 +5,15 @@ int main(){
     for(int i=4;i>=0;i--){
         if(r<arr[i]){
             r=arr[i];
+            int index=r/10;
+            rank[i]=index;
+            index=0;
+            r=0;
         }
         
+    }
+    for(int i=0;i<5;i++){
+        cout<<rank[i]<<" ";
     }
     return 0;
 }
