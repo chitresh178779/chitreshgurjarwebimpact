@@ -1,44 +1,34 @@
 #include<iostream>
-#include<string>
+#include<stack>
 using namespace std;
 int main()
-{
+{  
     string s;
-    int v=1;
-    cout<<"enter the combination of parenthesis: ";
     cin>>s;
-    int n=s.length();
-    for(int i=n;i>=0;i++){
-        if(s[i]=='('){
-            if(s[n-i+1]==')'){
-                continue;
-            }
-            else{
-                v=0;
-            }
-        }
-        else if(s[i]=='['){
-            if(s[n-i+1]==']'){
-                continue;
-            }
-            else{
-                v=0;
-            }
-        }
-        else if(s[i]=='{'){
-            if(s[n-i+1]=='}'){
-                continue;
-            }
-            else{
-                v=0;
-            }
-        }
+    stack<char> st;
+    int i=0;
+    int valid=1;
+    while(s[i]!='\0'){
+        st.push(s[i]);
+        i++;
     }
-    if(v==1){
-        cout<<"valid";
+    st.pop();
+    i=0;
+    while(!st.empty()){
+        if((s[i]=='('&& st.top()==')')||(s[i]=='{'&& st.top()=='}')||(s[i]=='['&& st.top()==']')){
+            st.pop();
+        }
+        else{
+            valid=0;
+            break;
+        }
+        i++;
+    }
+    if(valid==1){
+        cout<<"valid parenthesis";
     }
     else{
-        cout<<"invalid";
+        cout<<"invalid parenthesis";
     }
     return 0;
 }
