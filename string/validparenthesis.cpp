@@ -3,32 +3,54 @@
 using namespace std;
 int main()
 {  
-    string s;
-    cin>>s;
+    string s="{[(]]}";
+    // cin>>s;
+    int n=s.length();
     stack<char> st;
     int i=0;
-    int valid=1;
-    while(s[i]!='\0'){
-        st.push(s[i]);
-        i++;
-    }
-    st.pop();
-    i=0;
-    while(!st.empty()){
-        if((s[i]=='('&& st.top()==')')||(s[i]=='{'&& st.top()=='}')||(s[i]=='['&& st.top()==']')){
+    while(i<n){
+        if(s[i]=='('||s[i]=='{'||s[i]=='['){
+            st.push(s[i]);
+        }
+        else if(s[i]==')'||s[i]==']'||s[i]=='}'){
             st.pop();
         }
-        else{
-            valid=0;
-            break;
-        }
+        
         i++;
     }
-    if(valid==1){
-        cout<<"valid parenthesis";
+    if(st.empty()){
+        cout<<"true";
     }
     else{
-        cout<<"invalid parenthesis";
+        cout<<"false";
     }
+    // while(!st.empty()){
+    //     cout<<st.top();
+    //     st.pop();
+    // }
+    
     return 0;
 }
+
+
+
+// #include <iostream>
+// #include <set>
+// #include <string>
+
+// int main() {
+//     std::set<std::string> uniqueStrings;
+
+//     // Adding strings to the set
+//     uniqueStrings.insert("apple");
+//     uniqueStrings.insert("banana");
+//     uniqueStrings.insert("apple");  // Duplicate entry, will not be added
+//     uniqueStrings.insert("cherry");
+
+//     // Displaying the unique strings
+//     for (const auto& str : uniqueStrings) {
+//         std::cout << str << std::endl;
+//     }
+
+//     return 0;
+// }
