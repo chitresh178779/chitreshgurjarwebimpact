@@ -1,25 +1,34 @@
 #include<iostream>
 using namespace std;
-void swap(char &a,char &b){
-    char temp=a;
-    a=b;
-    b=temp;
+
+void swap(char &a, char &b) {
+    char temp = a;
+    a = b;
+    b = temp;
 }
-// void vowelswap(char &a,char &b){
-     
-int main()
-{
-    string s="chitresh";
-    int n=s.length();
-    for(int i=0;i<n/2;i++){
-        for(int j=n-i-1;j>n/2;j--){
-            if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u')&&( s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u')){
-            swap(s[i],s[j]);
-            break;
-            }
-        }
-    } 
+
+bool isVowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+int main() {
+    string s = "leetcode";
+    int n = s.length();
     
-    cout<<s;
+    int i = 0;
+    int j = n - 1;
+
+    while (i < j) {
+        if (isVowel(s[i]) && isVowel(s[j])) {
+            swap(s[i], s[j]);
+            i++;
+            j--;
+        } else {
+            if (!isVowel(s[i])) i++;
+            if (!isVowel(s[j])) j--;
+        }
+    }
+
+    cout << s;
     return 0;
 }
