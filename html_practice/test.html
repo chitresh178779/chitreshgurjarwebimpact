@@ -3,16 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Layout</title>
-<style>
-  body { font-family: Arial; background-color: #f9f9f9; }
-  header { background-color: #4CAF50; color: white; padding: 1em; text-align: center; }
-  main { margin: 2em; padding: 1em; border: 1px solid #ddd; background: #fff; }
-</style>
+    <title>Translate Text - Free</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="test.css">
 </head>
 <body>
-<header>Header Section</header>
-<main>Main Content Area</main>
-<footer>Footer Section</footer>
+
+    <div class="container text-center mt-5">
+        <h2 class="mb-3">🌍 Translate Text</h2>
+
+        <p id="text" class="lead">Hello! How are you today?</p>
+
+        <!-- Language Selection -->
+        <div class="mb-3">
+            <select id="language" class="form-select w-50 mx-auto">
+                <option value="hi">🇮🇳 Hindi</option>
+                <option value="ta">🇮🇳 Tamil</option>
+                <option value="bn">🇮🇳 Bengali</option>
+                <option value="te">🇮🇳 Telugu</option>
+                <option value="mr">🇮🇳 Marathi</option>
+                <option value="gu">🇮🇳 Gujarati</option>
+                <option value="ml">🇮🇳 Malayalam</option>
+                <option value="kn">🇮🇳 Kannada</option>
+                <option value="pa">🇮🇳 Punjabi</option>
+                <option value="or">🇮🇳 Odia</option>
+            </select>
+        </div>
+
+        <!-- Translate Button -->
+        <button class="btn btn-primary" onclick="translateText()">Translate</button>
+
+        <!-- Output -->
+        <div class="mt-3">
+            <h4>📝 Translated Text:</h4>
+            <p id="translatedText" class="fw-bold"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript & Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      async function translateText() {
+    let text = document.getElementById("text").innerText;
+    let targetLang = document.getElementById("language").value;
+    
+    let apiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+
+    try {
+        let response = await fetch(apiUrl);
+        let result = await response.json();
+        document.getElementById("translatedText").innerText = result[0][0][0];
+    } catch (error) {
+        document.getElementById("translatedText").innerText = "⚠️ Translation Error!";
+    }
+}
+
+    </script>
 </body>
 </html>

@@ -34,9 +34,9 @@ int main() {
     }
 
     if (isValid) {
-        cout << "true" << endl;
+        return true;
     } else {
-        cout << "false" << endl;
+        return false;
     }
 
     return 0;
